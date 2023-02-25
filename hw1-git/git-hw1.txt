@@ -1,0 +1,28 @@
+1. Скопировать репозиторий на свой компьютер:
+	git clone git@github.com:path/to/repo.git
+	предварительно должно быть настроено подключение по SSH протоколу с помощью приватного и публичного ключа:
+	ssh-keygen -t rsa -b 4096 -C "email@example.com"
+	eval $(ssh-agent -s)
+	ssh-add ~/.ssh/id_rsa
+	добавить ключ в настройках Settings -> SSH and GPG keys -> New SSH key. 
+	В Key вставить публичный ключ (содержимое файла ~/.ssh/id_rsa.pub). 
+	Нажать Add SSH key.
+
+2. Cоздать git репозиторий из локального каталога на своем компьютере:
+	перейти в каталог проекта cd C:/Users/user/my_project (windows)
+	git init
+	git add (some files)
+	git commit -m 'Initial project version'
+	создать на гитхабе пустой репозиторий, затем:
+	git branch -M main
+	git remote add origin git@github.com:user/reponame.git
+	git push -u origin main
+
+3. Получить на локальный компьютер изменения с github.com:
+	git fetch [remote-name] - не сливает
+	git pull - сольёт со своей текущей веткой (fetch+merge)
+
+4. git status - отображает состояние рабочего каталога и раздела проиндексированных файлов
+   git log - по умолчанию (без аргументов) перечисляет коммиты, 
+	     сделанные в репозитории в обратном к хронологическому порядке
+   git remote -v - покажет к какому удаленному репозиторию привязан локальный
