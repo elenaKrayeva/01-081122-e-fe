@@ -53,9 +53,10 @@ switch(number) {
 //}
 //Необходимо переписать этот код используя тернарный оператор
 
-/* let age = 10;
+let age = 122;
 
-(age < 10) ? console.log('hi!') : (age < 20) ? console.log('hello!') : console.log('good day!'); */
+const greeting = (age < 10) ? 'hi!' : (age < 20) ? 'hello!' : 'good day!'; 
+console.log(greeting);
 
 
 //4. Написать программу для проверки таблицы умножения:
