@@ -36,21 +36,21 @@ async function fetchUserData() {
     const response = await fetch("https://reqres.in/api/users?page=1");
     const data = await response.json();
 
-    const id = data.data.find(
+    const user = data.data.find(
       (user) => user.first_name === "Emma" && user.last_name === "Wong"
-    ).id;
-    console.log(id);
-    if (!id) {
+    );
+
+    if (!user) {
       throw new Error("Пользователь не найден");
     }
 
-    const userResponse = await fetch(`https://reqres.in/api/users/${id}`);
+    const userResponse = await fetch(`https://reqres.in/api/users/${user.id}`);
     const userData = await userResponse.json();
     const userWong = userData.data;
 
     console.log(userWong);
   } catch (error) {
-    console.log("Произошла ошибка:", error.message);
+    console.log("Произошла ошибка:", error.name, error.message);
   }
 }
 
