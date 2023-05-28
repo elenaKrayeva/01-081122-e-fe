@@ -6,7 +6,7 @@ fetch("https://reqres.in/api/users?page=1")
     const filteredUsers = data.data.filter(
       (user) => user.last_name.length >= 5
     );
-    if (!filteredUsers) {
+    if (filteredUsers.length === 0) {
         throw new Error("Нет таких юзеров");
       }
     console.log(filteredUsers);
